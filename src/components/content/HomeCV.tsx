@@ -1,3 +1,5 @@
+import { TypeAnimation } from 'react-type-animation';
+
 const HomeCV = () => {
     return (
         <>
@@ -11,13 +13,30 @@ const HomeCV = () => {
                         <div className="content hero">
                             <div className="inner_content">
                                 <div className="image_wrap">
-                                    <img src="img/hero/img.jpg" alt="hero" />
+                                    <img src="img/hero/duy.jpg" alt="hero" />
                                 </div>
                                 <div className="name_holder">
-                                    <h3>Alan <span>Michaelis</span></h3>
+                                    <h3>Quang <span>Duy</span></h3>
                                 </div>
                                 <div className="text_typing">
-                                    <p>I'm a <span className="arlo_tm_animation_text_word"></span></p>
+                                    <p>I'm a
+                                        <> </>
+                                        <TypeAnimation
+                                            sequence={[
+                                                // Same substring at the start will only be typed out once, initially
+                                                'Freelancer',
+                                                2000, // wait 1s before replacing "Mice" with "Hamsters"
+                                                'UI/UX Designer',
+                                                2000,
+                                                'Web Developer',
+                                                2000,
+                                            ]}
+                                            wrapper="span"
+                                            speed={50}
+                                            repeat={Infinity}
+                                        // style={{ fontSize: '2em', display: 'inline-block' }}
+                                        />
+                                    </p>
                                 </div>
                             </div>
                         </div>
