@@ -1471,6 +1471,16 @@ img.svg {
                     }
                 }
 
+                .icon {
+                    margin-bottom: 21px;
+
+                    svg {
+                        width : unset;
+                        height: unset;
+                        color : unset;
+                    }
+                }
+
                 .title_service {
                     margin-bottom: 17px;
 
@@ -1481,6 +1491,10 @@ img.svg {
                         color      : $color_7;
                         line-height: 1;
                     }
+                }
+
+                .viewdetail {
+                    cursor: pointer;
                 }
             }
         }

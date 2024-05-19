@@ -1,48 +1,106 @@
 
 import { Button, Modal } from 'antd';
+import { FaReact } from "react-icons/fa";
+import { FaNodeJs } from "react-icons/fa";
+import { AiOutlineFacebook } from "react-icons/ai";
+import { IoLogoJavascript } from "react-icons/io5";
+import { FaArrowRight } from "react-icons/fa";
+import { useState } from 'react';
+
+interface IProject {
+    image: any;
+    title: string;
+    shortDescription: string;
+    detail: {
+        description: string;
+        frontend: string;
+        backend: string;
+        member: string;
+        role: string;
+        demo: string;//link video, link github, link deploy
+        github: string;
+    }
+}
 
 const Project = () => {
-    const dataProjects = [
+    const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+    const [dataView, setDataView] = useState<IProject | null>(null);
+
+    const dataProjects: IProject[] = [
         {
-            imgae: "img/svg/camera-diaphragm.svg",
-            title: "Website Clone Tiki",
-            shortDescription: "Web design is a similar process of creation, with the intention of presenting the content on electronic pages ...",
+            image: <FaReact size={50} color="#00d9ff" />,
+            title: " Clone Tiki",
+            shortDescription: "Trang web thương mại điện tử bán sách hay cho khách hàng",
             detail: {
-                description: "",
-                technology: "",
-                member: "",
-                role: "",
-                demo: "",//link video, link github, link deploy
-                github: ""
+                description: "Trang web được làm vào năm 2 ",
+                frontend: "React.JS, Ant design, html, scss",
+                backend: "Nodejs, Express, MongoDB",
+                member: "Duy",
+                role: "front end",
+                demo: "https://book-shop-aduvip.vercel.app/",//link video, link github, link deploy
+                github: "https://github.com/QuangDuy212/udemy-react-test-fresher-hoidanit"
             }
         },
         {
-            imgae: "img/svg/camera-diaphragm.svg",
-            title: "Website Clone Tiki",
-            shortDescription: "Web design is a similar process of creation, with the intention of presenting the content on electronic pages ...",
+            image: <FaNodeJs size={50} color="#80bc04" />,
+            title: " Clone Tiki",
+            shortDescription: "Trang web thương mại điện tử bán sách hay cho khách hàng",
             detail: {
-                description: "",
-                technology: "",
-                member: "",
-                role: "",
-                demo: "",//link video, link github, link deploy
-                github: ""
+                description: "Trang web được làm vào năm 2 ",
+                frontend: "React.JS, Ant design, html, scss",
+                backend: "Nodejs, Express, MongoDB",
+                member: "Duy",
+                role: "front end",
+                demo: "https://book-shop-aduvip.vercel.app/",//link video, link github, link deploy
+                github: "https://github.com/QuangDuy212/udemy-react-test-fresher-hoidanit"
             }
         },
         {
-            imgae: "img/svg/camera-diaphragm.svg",
-            title: "Website Clone Tiki",
-            shortDescription: "Web design is a similar process of creation, with the intention of presenting the content on electronic pages ...",
+            image: <AiOutlineFacebook size={50} color="#1874f1" />,
+            title: " Clone Tiki",
+            shortDescription: "Trang web thương mại điện tử bán sách hay cho khách hàng",
             detail: {
-                description: "",
-                technology: "",
-                member: "",
-                role: "",
-                demo: "",//link video, link github, link deploy
-                github: ""
+                description: "Trang web được làm vào năm 2 ",
+                frontend: "React.JS, Ant design, html, scss",
+                backend: "Nodejs, Express, MongoDB",
+                member: "Duy",
+                role: "front end",
+                demo: "https://book-shop-aduvip.vercel.app/",//link video, link github, link deploy
+                github: "https://github.com/QuangDuy212/udemy-react-test-fresher-hoidanit"
+            }
+        },
+        {
+            image: <IoLogoJavascript size={50} color='#f6dd1e' />,
+            title: " Clone Tiki",
+            shortDescription: "Trang web thương mại điện tử bán sách hay cho khách hàng",
+            detail: {
+                description: "Trang web được làm vào năm 2 ",
+                frontend: "React.JS, Ant design, html, scss",
+                backend: "Nodejs, Express, MongoDB",
+                member: "Duy",
+                role: "front end",
+                demo: "https://book-shop-aduvip.vercel.app/",//link video, link github, link deploy
+                github: "https://github.com/QuangDuy212/udemy-react-test-fresher-hoidanit"
             }
         }
     ]
+
+    const showModal = () => {
+        setIsModalOpen(true);
+    };
+
+    const handleOk = () => {
+        setIsModalOpen(false);
+    };
+
+    const handleCancel = () => {
+        setIsModalOpen(false);
+    };
+
+    const handleViewDetail = (data: IProject) => {
+        setIsModalOpen(true);
+        setDataView(data);
+    }
     return (
         <>
             <div className="arlo_tm_section" id="projects">
@@ -59,13 +117,17 @@ const Project = () => {
                                         <li>
                                             <div className="inner" key={`project-${index}`}>
                                                 <div className="icon">
-                                                    <img className="svg" src={item.imgae} alt="camera-diaphragm" />
+                                                    {item.image}
                                                 </div>
                                                 <div className="title_service">
                                                     <h3>{item.title}</h3>
                                                 </div>
                                                 <div className="text">
                                                     <p>{item.shortDescription}</p>
+                                                </div>
+                                                <div className='viewdetail' onClick={() => handleViewDetail(item)}>
+                                                    &nbsp;
+                                                    <span className='icon'><FaArrowRight /></span> <span>Xem chi tiết</span>
                                                 </div>
                                             </div>
                                         </li>
@@ -76,6 +138,25 @@ const Project = () => {
                     </div>
                 </div>
             </div>
+
+            <Modal
+                title={dataView?.title}
+                open={isModalOpen}
+                onOk={handleOk}
+                onCancel={handleCancel}
+                footer={<></>}
+                maskClosable={false}
+            >
+                <ul>
+                    <li>Miêu tả: {dataView?.detail.description}</li>
+                    <li>Frontend: {dataView?.detail.frontend}</li>
+                    <li>Backend: {dataView?.detail.backend}</li>
+                    <li>Số lượng thành viên: 1</li>
+                    <li>Vai trò: {dataView?.detail.role}</li>
+                    <li>Demo: <a href=''></a>{dataView?.detail.demo}</li>
+                    <li>Github: {dataView?.detail.github}</li>
+                </ul>
+            </Modal>
         </>
     )
 }
