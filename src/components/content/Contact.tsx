@@ -33,7 +33,8 @@ const Contact = () => {
                             <div className="rightbox">
                                 <div className="arlo_tm_contact_wrap">
                                     <div className="main_input_wrap">
-                                        <form action="http://frenify.com/" method="post" className="contact_form" id="contact_form">
+                                        <div style={{ height: "200px" }}></div>
+                                        {/* <form action="http://frenify.com/" method="post" className="contact_form" id="contact_form">
                                             <div className="returnmessage" data-success="Your message has been received, We will contact you soon."></div>
                                             <div className="empty_notice"><span>Please Fill Required Fields</span></div>
                                             <div className="wrap">
@@ -48,7 +49,7 @@ const Contact = () => {
                                             <div className="arlo_tm_button">
                                                 <a id="send_message" href="#"><span>Send Message</span></a>
                                             </div>
-                                        </form>
+                                        </form> */}
                                     </div>
                                 </div>
                             </div>
