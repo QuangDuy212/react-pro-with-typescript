@@ -1,10 +1,11 @@
 import desktopLogo from '@/assets/img/logo/logo2.png';
 import { useEffect, useState } from 'react';
 import { FaGithub } from "react-icons/fa";
+import { isMobile } from 'react-device-detect';
 
 interface IProps {
-    showLeftPart: boolean;
-    setShowLeftPart: (value: boolean) => void;
+    hideLeftPart: boolean;
+    setHideLeftPart: (value: boolean) => void;
 }
 
 interface ITab {
@@ -26,7 +27,7 @@ const LeftPart = (props: IProps) => {
         },
         {
             id: "skills",
-            name: "skills"
+            name: "Skills"
         },
         {
             id: "projects",
@@ -62,7 +63,7 @@ const LeftPart = (props: IProps) => {
     }
     return (
         <>
-            <div className={props.showLeftPart === true ? "arlo_tm_leftpart_wrap opened" : "arlo_tm_leftpart_wrap"}>
+            <div className={props.hideLeftPart === true ? "arlo_tm_leftpart_wrap opened" : "arlo_tm_leftpart_wrap"}>
                 <div className="leftpart_inner">
                     <div className="logo_wrap">
                         <a href="#"><img src={desktopLogo} alt="desktop-logo" /></a>
@@ -99,10 +100,12 @@ const LeftPart = (props: IProps) => {
                             </ul>
                         </div>
                     </div>
-                    <a className={props.showLeftPart === true ? "arlo_tm_resize opened" : "arlo_tm_resize"} href="#"
-                        onClick={() => props.setShowLeftPart(!props.showLeftPart)}
-                    ><i className={props.showLeftPart === true ? "xcon-angle-left opened" : "xcon-angle-left"}></i>
-                    </a>
+                    {!isMobile &&
+                        <a className={props.hideLeftPart === true ? "arlo_tm_resize opened" : "arlo_tm_resize"} href="#"
+                            onClick={(e) => { e.preventDefault(); props.setHideLeftPart(!props.hideLeftPart) }}
+                        ><i className={props.hideLeftPart === true ? "xcon-angle-left opened" : "xcon-angle-left"}></i>
+                        </a>
+                    }
                 </div>
             </div>
         </>

@@ -5,14 +5,14 @@ import Project from "components/content/Project";
 import Contact from "components/content/Contact";
 
 interface IProps {
-    showLeftPart: boolean;
-    setShowLeftPart: (value: boolean) => void;
+    hideLeftPart: boolean;
+    setHideLeftPart: (value: boolean) => void;
 }
 
 const RightPart = (props: IProps) => {
     return (
         <>
-            <div className={props.showLeftPart === true ? "arlo_tm_rightpart opened" : "arlo_tm_rightpart"}>
+            <div className={props.hideLeftPart === true ? "arlo_tm_rightpart opened" : "arlo_tm_rightpart"}>
                 <div className="rightpart_inner">
                     <HomeCV />
 

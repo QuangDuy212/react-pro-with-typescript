@@ -1,14 +1,22 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import LeftPart from "../components/LeftPart";
 import PreLoader from "../components/PreLoader";
 import RightPart from "../components/RightPart";
 import MobileMenu from "../components/mobile/menu";
 import { FloatButton } from 'antd';
+import { isMobile } from 'react-device-detect';
 
 
 
 const Portfolio = () => {
-    const [showLeftPart, setShowLeftPart] = useState<boolean>(false);
+    const [hideLeftPart, setHideLeftPart] = useState<boolean>(false);
+
+    useEffect(() => {
+        if (isMobile) {
+            setHideLeftPart(true);
+        }
+        console.log(">>> check isMobile: ", isMobile)
+    }, [isMobile])
     return (
         <>
             <div className="arlo_tm_wrapper_all">
@@ -33,15 +41,15 @@ const Portfolio = () => {
 
                     {/* <!-- LEFTPART --> */}
                     <LeftPart
-                        showLeftPart={showLeftPart}
-                        setShowLeftPart={setShowLeftPart}
+                        hideLeftPart={hideLeftPart}
+                        setHideLeftPart={setHideLeftPart}
                     />
                     {/* <!-- /LEFTPART --> */}
 
                     {/* <!-- RIGHTPART --> */}
                     <RightPart
-                        showLeftPart={showLeftPart}
-                        setShowLeftPart={setShowLeftPart}
+                        hideLeftPart={hideLeftPart}
+                        setHideLeftPart={setHideLeftPart}
                     />
                     {/* <!-- /RIGHTPART --> */}
 
