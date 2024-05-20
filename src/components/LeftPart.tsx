@@ -1,4 +1,5 @@
 import desktopLogo from '@/assets/img/logo/logo2.png';
+import { useState } from 'react';
 import { FaGithub } from "react-icons/fa";
 
 interface IProps {
@@ -6,7 +7,45 @@ interface IProps {
     setShowLeftPart: (value: boolean) => void;
 }
 
+interface ITab {
+    id: string;
+    name: string;
+}
+
 const LeftPart = (props: IProps) => {
+    const [activeTab, setActiveTab] = useState<string>("home");
+
+    const itemList: ITab[] = [
+        {
+            id: "home",
+            name: "Home"
+        },
+        {
+            id: "about",
+            name: "About"
+        },
+        {
+            id: "skills",
+            name: "skills"
+        },
+        {
+            id: "projects",
+            name: "Projects"
+        },
+        {
+            id: "contact",
+            name: "Contact"
+        },
+    ]
+
+    const handleClickTab = (tab: string, event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+        event.preventDefault();
+        setActiveTab(tab);
+        const element = document.querySelector(`#${tab}`);
+        if (element)
+            element.scrollIntoView({ block: 'start', behavior: 'smooth' });
+
+    }
     return (
         <>
             <div className={props.showLeftPart === true ? "arlo_tm_leftpart_wrap opened" : "arlo_tm_leftpart_wrap"}>
@@ -16,11 +55,17 @@ const LeftPart = (props: IProps) => {
                     </div>
                     <div className="menu_list_wrap">
                         <ul className="anchor_nav">
-                            <li><a href="#home">Home</a></li>
-                            <li><a href="#about">About</a></li>
-                            <li><a href="#skills">Skills</a></li>
-                            <li><a href="#projects">Projects</a></li>
-                            <li><a href="#contact">Contact</a></li>
+                            {itemList && itemList.map((item, index) => {
+                                return (
+                                    <li>
+                                        <a href={`#${item.id}`}
+                                            onClick={(event) => handleClickTab(item.id, event)}
+                                            className={activeTab === item.id ? "active" : ""}
+                                        >{item.name}
+                                        </a>
+                                    </li>
+                                )
+                            })}
                         </ul>
                     </div>
                     <div className="leftpart_bottom">

@@ -3,7 +3,8 @@ import duy from '@/assets/img/hero/duy.jpg';
 import hero2 from '@/assets/img/hero/2.jpg'
 
 const HomeCV = () => {
-    const handleScrollToAbout = () => {
+    const handleScrollToAbout = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+        e.preventDefault()
         const section = document.querySelector('#about');
         if (section)
             section.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -50,7 +51,7 @@ const HomeCV = () => {
                             </div>
                         </div>
                         <div className="arlo_tm_arrow_wrap bounce anchor">
-                            <a onClick={() => handleScrollToAbout()}><i className="xcon-angle-double-down"></i></a>
+                            <a onClick={(e) => handleScrollToAbout(e)}><i className="xcon-angle-double-down"></i></a>
                         </div>
                     </div>
                 </div>
