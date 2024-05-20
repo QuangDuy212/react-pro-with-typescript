@@ -1,5 +1,5 @@
 import desktopLogo from '@/assets/img/logo/logo2.png';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { FaGithub } from "react-icons/fa";
 
 interface IProps {
@@ -38,12 +38,26 @@ const LeftPart = (props: IProps) => {
         },
     ]
 
+    useEffect(() => {
+        const { hash } = window.location;
+        if (hash) {
+            const tab = hash.replace("#", "");
+            setActiveTab(tab);
+            const element = document.querySelector(`${hash}`);
+            if (element) {
+                element.scrollIntoView({ block: 'start', behavior: 'smooth' });
+            }
+        }
+    }, [])
+
     const handleClickTab = (tab: string, event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
         event.preventDefault();
         setActiveTab(tab);
         const element = document.querySelector(`#${tab}`);
-        if (element)
+        if (element) {
             element.scrollIntoView({ block: 'start', behavior: 'smooth' });
+            window.location.hash = tab;
+        }
 
     }
     return (
