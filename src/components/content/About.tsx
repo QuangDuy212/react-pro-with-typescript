@@ -6,7 +6,7 @@ import { TypeAnimation } from 'react-type-animation';
 const About = () => {
     return (
         <>
-            <div className="arlo_tm_section relative" id="about">
+            <div className="arlo_tm_section relative" id="about" style={{ paddingTop: "100px" }}>
                 <div className="arlo_tm_about_wrapper_all">
                     <div className="container">
                         <div className="arlo_tm_title_holder">
