@@ -1,10 +1,14 @@
+import { useState } from "react";
 import LeftPart from "../components/LeftPart";
 import PreLoader from "../components/PreLoader";
 import RightPart from "../components/RightPart";
 import MobileMenu from "../components/mobile/menu";
 import { FloatButton } from 'antd';
 
+
+
 const Portfolio = () => {
+    const [showLeftPart, setShowLeftPart] = useState<boolean>(false);
     return (
         <>
             <div className="arlo_tm_wrapper_all">
@@ -28,11 +32,17 @@ const Portfolio = () => {
                 <div className="arlo_tm_content">
 
                     {/* <!-- LEFTPART --> */}
-                    <LeftPart />
+                    <LeftPart
+                        showLeftPart={showLeftPart}
+                        setShowLeftPart={setShowLeftPart}
+                    />
                     {/* <!-- /LEFTPART --> */}
 
                     {/* <!-- RIGHTPART --> */}
-                    <RightPart />
+                    <RightPart
+                        showLeftPart={showLeftPart}
+                        setShowLeftPart={setShowLeftPart}
+                    />
                     {/* <!-- /RIGHTPART --> */}
 
                     {/* <a className="arlo_tm_totop" href="#"></a> */}
