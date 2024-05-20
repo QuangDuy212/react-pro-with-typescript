@@ -2,8 +2,24 @@ import duy1 from '@/assets/img/about/duy1.jpg';
 import about from '@/assets/img/about/550x640.jpg';
 import cvduy from '@/assets/duy.pdf';
 import { TypeAnimation } from 'react-type-animation';
+import { useEffect, useRef } from 'react';
+import Parallax from 'parallax-js';
 
 const About = () => {
+    const sceneEl = useRef(null);
+
+    useEffect(() => {
+        if (sceneEl && sceneEl.current) {
+            const parallaxInstance = new Parallax(sceneEl.current, {
+                relativeInput: true,
+                hoverOnly: false
+            })
+
+            parallaxInstance.enable();
+
+            return () => parallaxInstance.disable();
+        }
+    }, [])
     return (
         <>
             <div className="arlo_tm_section relative" id="about" style={{ paddingTop: "100px" }}>
@@ -16,7 +32,7 @@ const About = () => {
                         <div className="arlo_tm_about_wrap">
                             <div className="author_wrap">
                                 <div className="leftbox">
-                                    <div className="about_image_wrap parallax" data-relative-input="true">
+                                    <div className="about_image_wrap parallax" data-relative-input="true" ref={sceneEl}>
                                         <div className="image layer" data-depth="0.1">
                                             <img src={about} alt="550x640" />
                                             <div className="inner"

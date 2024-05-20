@@ -30,6 +30,8 @@ $background-color_13  : #BC0127;
 $background-color_14  : #333333;
 $background-color_15  : rgba(4, 18, 48, .97);
 $border-bottom-color_1: #fff;
+$background-image_2   :"@/assets/img/logo/2.jpg";
+$background-image_3   :"@/assets/img/logo/3.jpg";
 
 /*@charset "utf-8";*/
 /*
@@ -770,7 +772,7 @@ img.svg {
     }
 
     .overlay_image.hero {
-        background-image: url(../img/hero/2.jpg);
+        background-image: url($background-image_2);
     }
 
     .overlay_color.hero {
@@ -782,7 +784,7 @@ img.svg {
     }
 
     .overlay_image.testimonial {
-        background-image: url(../img/hero/3.jpg);
+        background-image: url($background-image_3);
     }
 
     .overlay_color.testimonial {
@@ -2532,7 +2534,7 @@ img.svg {
 .arlo_tm_universal_box_wrap.particle {
     height             : 100vh;
     position           : relative;
-    background-image   : url(../img/hero/2.jpg);
+    background-image   : url($background-image_2);
     background-repeat  : no-repeat;
     background-size    : cover;
     background-position: center;
@@ -2553,7 +2555,7 @@ img.svg {
     background-repeat  : no-repeat;
     background-position: center;
     background-size    : cover;
-    background-image   : url(../img/hero/2.jpg);
+    background-image   : url($background-image_2);
     position           : relative;
 
     .overlay {
@@ -2612,7 +2614,7 @@ img.svg {
         }
 
         .overlay_image.top {
-            background-image: url(../img/hero/2.jpg);
+            background-image: url($background-image_2);
         }
 
         .overlay_color.top {

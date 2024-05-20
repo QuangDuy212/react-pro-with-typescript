@@ -1,4 +1,6 @@
 import { TypeAnimation } from 'react-type-animation';
+import duy from '@/assets/img/hero/duy.jpg';
+import hero2 from '@/assets/img/hero/2.jpg'
 
 const HomeCV = () => {
     const handleScrollToAbout = () => {
@@ -12,13 +14,15 @@ const HomeCV = () => {
                 <div className="arlo_tm_hero_header_wrap">
                     <div className="arlo_tm_universal_box_wrap">
                         <div className="bg_wrap">
-                            <div className="overlay_image hero jarallax" data-speed="0.1"></div>
+                            <div className="overlay_image hero jarallax" data-speed="0.1"
+                                style={{ backgroundImage: `url(${hero2})` }}
+                            ></div>
                             <div className="overlay_color hero"></div>
                         </div>
                         <div className="content hero">
                             <div className="inner_content">
                                 <div className="image_wrap">
-                                    <img src="img/hero/duy.jpg" alt="hero" />
+                                    <img src={duy} alt="hero" />
                                 </div>
                                 <div className="name_holder">
                                     <h3>Quang <span>Duy</span></h3>
