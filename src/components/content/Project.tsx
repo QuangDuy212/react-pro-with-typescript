@@ -140,7 +140,7 @@ const Project = () => {
             </div>
 
             <Modal
-                title={dataView?.title}
+                title={dataView && dataView?.title ? dataView?.title : ""}
                 open={isModalOpen}
                 onOk={handleOk}
                 onCancel={handleCancel}
