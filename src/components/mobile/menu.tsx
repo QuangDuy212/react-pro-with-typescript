@@ -10,9 +10,6 @@ const MobileMenu = () => {
 
     const style = {
         display: isOpen ? "block" : "none",
-        overflow: "hidden",
-        height: isOpen ? 256 : 0,
-        transition: "2s"
     };
 
     const itemList: ITab[] = [
