@@ -1,4 +1,4 @@
-import mobile_logo from '@/assets/img/logo/mobile_logo.png';
+import mobile_logo from 'src/assets/img/logo/mobile_logo.png';
 import { useState } from 'react';
 interface ITab {
     id: string;

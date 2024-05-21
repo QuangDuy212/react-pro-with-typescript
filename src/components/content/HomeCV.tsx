@@ -1,6 +1,6 @@
 import { TypeAnimation } from 'react-type-animation';
-import duy from '@/assets/img/hero/duy.jpg';
-import hero2 from '@/assets/img/hero/2.jpg'
+import duy from 'src/assets/img/hero/duy.jpg';
+import hero2 from 'src/assets/img/hero/2.jpg'
 
 const HomeCV = () => {
     const handleScrollToAbout = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {

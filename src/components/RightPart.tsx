@@ -1,8 +1,8 @@
-import About from "components/content/About";
-import HomeCV from "components/content/HomeCV";
-import Skill from "components/content/Skill";
-import Project from "components/content/Project";
-import Contact from "components/content/Contact";
+import About from "./content/About";
+import HomeCV from "./content/HomeCV";
+import Skill from "./content/Skill";
+import Project from "./content/Project";
+import Contact from "./content/Contact";
 
 interface IProps {
     hideLeftPart: boolean;

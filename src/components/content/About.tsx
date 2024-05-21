@@ -1,6 +1,6 @@
-import duy1 from '@/assets/img/about/duy1.jpg';
-import about from '@/assets/img/about/550x640.jpg';
-import cvduy from '@/assets/duy.pdf';
+import duy1 from 'src/assets/img/about/duy1.jpg';
+import about from 'src/assets/img/about/550x640.jpg';
+import cvduy from 'src/assets/duy.pdf';
 import { TypeAnimation } from 'react-type-animation';
 import { useEffect, useRef } from 'react';
 import Parallax from 'parallax-js';

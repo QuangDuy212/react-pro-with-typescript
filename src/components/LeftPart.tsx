@@ -1,4 +1,4 @@
-import desktopLogo from '@/assets/img/logo/logo2.png';
+import desktopLogo from 'src/assets/img/logo/logo2.png';
 import { useEffect, useState } from 'react';
 import { FaGithub } from "react-icons/fa";
 import { isMobile } from 'react-device-detect';
